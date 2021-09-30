@@ -30,7 +30,7 @@ router.post('/', validateUser, (req, res, next) => {
   // this needs a middleware to check that the request body is valid
   Users.insert(req.body)
     .then(user => {
-      res.status(200).json(user)
+      res.status(201).json(user)
     })
     .catch(next)
 });
@@ -41,7 +41,7 @@ router.put('/:id', validateUserId, validateUser, (req, res, next) => {
   // and another middleware to check that the request body is valid
   Users.update(req.params.id, req.body)
     .then(updatedUser => {
-      res.status(201).json(updatedUser)
+      res.status(200).json(updatedUser)
     })
 });
 
